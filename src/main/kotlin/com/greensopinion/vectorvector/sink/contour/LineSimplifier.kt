@@ -1,8 +1,5 @@
 package com.greensopinion.vectorvector.sink.contour
 
-import java.awt.List
-import java.util.concurrent.Future
-
 class LineSimplifier(
     private val epsilon: Double
 ) {
@@ -19,12 +16,10 @@ class LineSimplifier(
             if (distance > maxDistance) {
                 maxDistance = distance
                 index = i
-                println("Found new max distance $maxDistance at i of $i")
             }
         }
 
         if (maxDistance > epsilon) {
-            println("$maxDistance is bigger than $epsilon")
             val left = simplify(Line(line.points.take(index + 1)))
             val right = simplify(Line(line.points.drop(index)))
             return Line(left.points.dropLast(1) + right.points)
