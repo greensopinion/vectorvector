@@ -33,16 +33,15 @@ class LineSimplifierTest {
     }
 
     @Test
-    fun `small curve does not simplify`() {
+    fun `small curve does simplify`() {
         val input = Line(listOf(DoublePoint(1.0, 1.0), DoublePoint(2.0, 1.9), DoublePoint(3.0, 1.0)))
         val expectedOutput = Line(listOf(DoublePoint(1.0, 1.0), DoublePoint(3.0, 1.0)))
         assertThat(simplifier.simplify(input).points).isEqualTo(expectedOutput.points)
     }
 
     @Test
-    fun `large curve does simplify`() {
+    fun `large curve does not simplify`() {
         val input = Line(listOf(DoublePoint(1.0, 1.0), DoublePoint(2.0, 3.1), DoublePoint(3.0, 1.0)))
-        val expectedOutput = Line(listOf(DoublePoint(1.0, 1.0), DoublePoint(2.0, 3.1), DoublePoint(3.0, 1.0)))
-        assertThat(simplifier.simplify(input).points).isEqualTo(expectedOutput.points)
+        assertThat(simplifier.simplify(input).points).isEqualTo(input.points)
     }
 }

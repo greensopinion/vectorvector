@@ -1,5 +1,6 @@
 package com.greensopinion.vectorvector.sink.contour
 
+// Reduces the number of points in a line using the Ramer–Douglas–Peucker algorithm
 class LineSimplifier(
     private val epsilon: Double
 ) {
