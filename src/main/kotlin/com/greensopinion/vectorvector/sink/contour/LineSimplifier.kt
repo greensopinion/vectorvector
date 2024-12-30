@@ -1,6 +1,10 @@
 package com.greensopinion.vectorvector.sink.contour
 
-// Reduces the number of points in a line using the Ramer–Douglas–Peucker algorithm
+/**
+ * Reduces the number of points in a line using the Ramer–Douglas–Peucker algorithm
+ *
+ * @param epsilon The tolerance value that determines the maximum allowed perpendicular distance from the line vector.
+ */
 class LineSimplifier(
     private val epsilon: Double
 ) {
